@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Comp from './comp.jsx';
+import Search from './search.jsx';
 import VidSelect from './vidSelect.jsx';
 import Screen from './screen.jsx';
 
@@ -343,16 +343,22 @@ class App extends React.Component{
                 }
             ]
         };
+        this.updateVids = this.updateVids.bind(this);
     }
 
     render(){
         return(
             <div id="main">
-                <Comp/>
-                <Screen vid={this.state.vids[3]}/>
+                <Search updateVids={this.updateVids}/>
+                <Screen vid={this.state.vids[0]}/>
                 <VidSelect vids={this.state.vids}/>
             </div>
         )
+    }
+
+    updateVids(newVids){
+        console.log('reached updateVids');
+        this.setState({vids: newVids});
     }
 
 }
