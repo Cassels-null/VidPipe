@@ -1,5 +1,8 @@
 #screen{
     width: 70%;
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 #currentVidContainer{
@@ -18,4 +21,7 @@
 
 #vidSelect {
     float: right;
+    width: 23%;
+    margin-right: 2%;
+    border-style: solid;
 }
