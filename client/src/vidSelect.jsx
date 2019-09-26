@@ -9,7 +9,7 @@ class VidSelect extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="vidSelect">
                 a
                 {this.props.vids.map((e)=>{return <div>{e.testText}</div>})}
                 b

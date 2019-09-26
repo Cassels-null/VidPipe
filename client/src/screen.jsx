@@ -9,8 +9,10 @@ class Screen extends React.Component{
 
     render(){
         return(
-            <div>
-                this is the screen
+            <div id='screen'>
+                <div id='currentVidContainer'>
+                    <iframe id='currentVid' src={`https://www.youtube.com/embed/${this.props.vid.id.videoId}`} allowFullScreen></iframe>
+                </div>
             </div>
         )
     }
