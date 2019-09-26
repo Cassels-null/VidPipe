@@ -1,11 +1,11 @@
-#screen{
+#screen {
     width: 70%;
     float: left;
     margin-left: 2%;
     margin-right: 2%;
 }
 
-#currentVidContainer{
+#currentVidContainer {
     border-style: solid;
     position: relative;
     /* width: 600px; */
@@ -24,4 +24,13 @@
     width: 23%;
     margin-right: 2%;
     border-style: solid;
+    border-width: 1px;
+    padding: 5px;
 }
+
+.vidInList {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.thumbnail {}

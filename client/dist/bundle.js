@@ -951,7 +951,40 @@ function (_React$Component) {
           "channelTitle": "Metamaurus",
           "liveBroadcastContent": "none"
         }
-      }]
+      }],
+      watching: {
+        "kind": "youtube#searchResult",
+        "etag": "\"p4VTdlkQv3HQeTEaXgvLePAydmU/TLfyXhN13TDH7HfI2AQsxZAdS20\"",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "3k2PVBl6kKA"
+        },
+        "snippet": {
+          "publishedAt": "2013-05-16T06:23:25.000Z",
+          "channelId": "UCQLHU5MVfMo-wZJn8kGokbw",
+          "title": "ShivCom",
+          "description": "Shivs are the best way to play xcom -- www.twitch.tv/mikelat/c/2290106&utm_campaign=archive_export&utm_source=mikelat&utm_medium=youtube follow me: ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/3k2PVBl6kKA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/3k2PVBl6kKA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/3k2PVBl6kKA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "mikelat",
+          "liveBroadcastContent": "none"
+        }
+      }
     };
     _this.updateVids = _this.updateVids.bind(_assertThisInitialized(_this));
     return _this;
@@ -965,7 +998,7 @@ function (_React$Component) {
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__search_jsx__["a" /* default */], {
         updateVids: this.updateVids
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__screen_jsx__["a" /* default */], {
-        vid: this.state.vids[0]
+        vid: this.state.watching
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__vidSelect_jsx__["a" /* default */], {
         vids: this.state.vids
       }));
@@ -25757,9 +25790,13 @@ function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         id: "vidSelect"
-      }, "a", this.props.vids.map(function (e) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, e.testText);
-      }), "b");
+      }, this.props.vids.map(function (e) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "vidInList"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+          src: e.snippet.thumbnails["default"].url
+        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, e.snippet.title));
+      }));
     }
   }]);
 

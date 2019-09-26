@@ -10,9 +10,12 @@ class VidSelect extends React.Component{
     render(){
         return(
             <div id="vidSelect">
-                a
-                {this.props.vids.map((e)=>{return <div>{e.testText}</div>})}
-                b
+                {this.props.vids.map((e)=>{return (
+                    <div className='vidInList'>
+                        <img src={e.snippet.thumbnails.default.url}/>
+                        <div>{e.snippet.title}</div>
+                    </div>
+                )})}
             </div>
         )
     }
