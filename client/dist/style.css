@@ -1,8 +1,17 @@
+#bigFlex {
+    display: flex;
+    /* flex-flow: row; */
+    /* flex-direction: row; */
+    
+}
+
 #screen {
-    width: 70%;
-    float: left;
+    width: 100%;
+    /* float: left; */
     margin-left: 2%;
     margin-right: 2%;
+    max-width: 1000px;
+    max-height: 566px;
 }
 
 #currentVidContainer {
@@ -17,20 +26,66 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    max-width: 1000px;
+    max-height: 566px;
 }
 
 #vidSelect {
-    float: right;
-    width: 23%;
+    /* float: right; */
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
     margin-right: 2%;
     border-style: solid;
     border-width: 1px;
     padding: 5px;
+    flex-wrap: wrap;
+}
+
+@media (min-width : 1400px){
+    #vidSelect{
+        width: calc(100% - 1020px);
+    }
+    .vidInList {
+        /* flex-direction: row; */
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1000px){
+    #bigFlex {
+        flex-direction: column;
+    }
+
+    #screen{
+        max-width: 98%;
+    }
+
+    #vidSelect {
+        display: flex;
+        /* flex-direction: row; */
+        /* flex-flow: row; */
+        width: 98%;
+    }
 }
 
 .vidInList {
+    display: flex;
+    flex-direction: row;
     border-style: solid;
     border-width: 1px;
+    max-height: 150px;
+    /* max-width: 190px; */
 }
 
-.thumbnail {}
+.thumbnail {
+    /* width: 95%; */
+    width: 190px;
+    height: 106px;
+}
+
+.listTitle {
+    max-height: 50px;
+    max-width: 190px;
+    overflow: hidden;
+}

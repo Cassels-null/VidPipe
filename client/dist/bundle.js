@@ -997,11 +997,13 @@ function (_React$Component) {
         id: "main"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__search_jsx__["a" /* default */], {
         updateVids: this.updateVids
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__screen_jsx__["a" /* default */], {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        id: "bigFlex"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__screen_jsx__["a" /* default */], {
         vid: this.state.watching
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__vidSelect_jsx__["a" /* default */], {
         vids: this.state.vids
-      }));
+      })));
     }
   }, {
     key: "updateVids",
@@ -25794,8 +25796,11 @@ function (_React$Component) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
           className: "vidInList"
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-          src: e.snippet.thumbnails["default"].url
-        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", null, e.snippet.title));
+          className: "thumbnail",
+          src: e.snippet.thumbnails.medium.url
+        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: "listTitle"
+        }, e.snippet.title));
       }));
     }
   }]);

@@ -383,8 +383,10 @@ class App extends React.Component{
         return(
             <div id="main">
                 <Search updateVids={this.updateVids}/>
-                <Screen vid={this.state.watching}/>
-                <VidSelect vids={this.state.vids}/>
+                <div id='bigFlex'>
+                    <Screen vid={this.state.watching}/>
+                    <VidSelect vids={this.state.vids}/>
+                </div>
             </div>
         )
     }
