@@ -86,6 +86,6 @@
 
 .listTitle {
     max-height: 50px;
-    max-width: 190px;
+    width: 190px;
     overflow: hidden;
 }
