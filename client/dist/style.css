@@ -16,10 +16,11 @@ body {
     margin-right: 2%;
     max-width: 1000px;
     max-height: 566px;
+    margin-top: 6px;
 }
 
 #currentVidContainer {
-    border-style: solid;
+    /* border-style: solid; */
     position: relative;
     /* width: 600px; */
     height: 0;
@@ -39,12 +40,12 @@ body {
     display: flex;
     flex-direction: column;
     min-width: 400px;
-    max-height: calc(100vh - 70px);
+    max-height: calc(100vh - 84px);
     margin-right: 2%;
     /* border-style: solid; */
     border-width: 1px;
     padding: 5px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-left: 0px;
     flex-wrap: nowrap;
     overflow-y: scroll;
@@ -158,4 +159,39 @@ body {
 #descriptionSnip {
     padding-top: 5px;
     /* font-size: 14px; */
+}
+
+#searchHeadder {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* margin-left: 2%; */
+}
+
+#searchContainer {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+    border-radius: 3px;
+}
+
+#searchText {
+    width: calc(100% - 82px);
+    border-radius: 0px;
+    /* border-style: none; */
+    border-width: 0px;
+    padding: 5px;
+}
+
+#searchButton {
+    padding: 5px 15px;
+    border-radius: 0px;
+    border-width: 0px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: brown; */
+    cursor: pointer;
 }

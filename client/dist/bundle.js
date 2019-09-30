@@ -26794,16 +26794,19 @@ function (_React$Component) {
       return (// <div id='searchContainer' onClick={()=>{this.search()}}>
         //     this is a component
         // </div>
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          id: "searchHeadder"
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
           id: "searchContainer",
           onSubmit: this.search
         }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
           id: "searchText",
           type: "text"
         }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          id: "searchButton",
           type: "submit",
-          value: "submit!"
-        }))
+          value: "search!"
+        })))
       );
     }
   }, {

@@ -14,10 +14,12 @@ class Comp extends React.Component{
             // <div id='searchContainer' onClick={()=>{this.search()}}>
             //     this is a component
             // </div>
-            <form id='searchContainer' onSubmit={this.search}>
-                <input id='searchText' type="text"></input>
-                <input type="submit" value="submit!"/>
-            </form>
+            <div id='searchHeadder'>
+                <form id='searchContainer' onSubmit={this.search}>
+                    <input id='searchText' type="text"></input>
+                    <input id='searchButton' type="submit" value="search!"/>
+                </form>
+            </div>
         )
     }
 
