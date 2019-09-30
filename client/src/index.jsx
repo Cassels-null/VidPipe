@@ -375,7 +375,7 @@ class App extends React.Component{
                     "liveBroadcastContent": "none"
                 }
             },
-            watchID : 7
+            watchID : 1
         };
         this.updateVids = this.updateVids.bind(this);
         this.playNewVid = this.playNewVid.bind(this);
