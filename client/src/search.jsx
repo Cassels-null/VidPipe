@@ -5,7 +5,9 @@ import axios from "axios";
 class Comp extends React.Component{
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            serverAdress : "http://127.0.0.1:1337"
+        }
         this.search = this.search.bind(this);
     }
 
@@ -25,7 +27,7 @@ class Comp extends React.Component{
 
     search(e){
         e.preventDefault();
-        var urlWithSearchTerm = "http://127.0.0.1:1337/search?q=" + document.getElementById('searchText').value;
+        var urlWithSearchTerm = this.state.serverAdress + "/search?q=" + document.getElementById('searchText').value;
         axios.get(urlWithSearchTerm)
         .then((result)=>{this.props.updateVids(result.data);})
         .catch((err)=>{console.log("ERROR in Search.search: "+err)})

@@ -26783,7 +26783,9 @@ function (_React$Component) {
     _classCallCheck(this, Comp);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Comp).call(this, props));
-    _this.state = {};
+    _this.state = {
+      serverAdress: "http://127.0.0.1:1337"
+    };
     _this.search = _this.search.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -26815,7 +26817,7 @@ function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      var urlWithSearchTerm = "http://127.0.0.1:1337/search?q=" + document.getElementById('searchText').value;
+      var urlWithSearchTerm = this.state.serverAdress + "/search?q=" + document.getElementById('searchText').value;
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get(urlWithSearchTerm).then(function (result) {
         _this2.props.updateVids(result.data);
       })["catch"](function (err) {
