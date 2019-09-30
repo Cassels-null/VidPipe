@@ -13,7 +13,10 @@ class VidInList extends React.Component{
             <div className='vidInList'>
                 <img className='thumbnail' src={this.props.vidInfo.snippet.thumbnails.medium.url}
                 onClick={this.play}/>
-                <div className='listTitle'>{this.props.vidInfo.snippet.title}</div>
+                <div className='listTitle'>
+                    <div className="vidTitle">{this.props.vidInfo.snippet.title}</div>
+                    <div className="channelTitle">{this.props.vidInfo.snippet.channelTitle}</div>
+                </div>
             </div>
         )
     }

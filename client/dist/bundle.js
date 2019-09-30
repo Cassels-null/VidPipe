@@ -25815,11 +25815,7 @@ function (_React$Component) {
           playNewVid: _this2.props.playNewVid,
           vidInfo: ele,
           vidID: index
-        }) // <div className='vidInList'>
-        //     <img className='thumbnail' src={e.snippet.thumbnails.medium.url}/>
-        //     <div className='listTitle'>{e.snippet.title}</div>
-        // </div>
-        ;
+        });
       }));
     }
   }]);
@@ -27678,7 +27674,11 @@ function (_React$Component) {
         onClick: this.play
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: "listTitle"
-      }, this.props.vidInfo.snippet.title));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "vidTitle"
+      }, this.props.vidInfo.snippet.title), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "channelTitle"
+      }, this.props.vidInfo.snippet.channelTitle)));
     }
   }, {
     key: "play",
