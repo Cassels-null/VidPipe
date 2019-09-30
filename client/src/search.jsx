@@ -18,7 +18,7 @@ class Comp extends React.Component{
             // </div>
             <div id='searchHeadder'>
                 <form id='searchContainer' onSubmit={this.search}>
-                    <input id='searchText' type="text"></input>
+                    <input id='searchText' type="text" onClick={this.select} defaultValue='genetic algorithms'></input>
                     <input id='searchButton' type="submit" value="search!"/>
                 </form>
             </div>
@@ -31,6 +31,10 @@ class Comp extends React.Component{
         axios.get(urlWithSearchTerm)
         .then((result)=>{this.props.updateVids(result.data);})
         .catch((err)=>{console.log("ERROR in Search.search: "+err)})
+    }
+
+    select(e){
+        document.getElementById("searchText").select();
     }
 
     // handelSubmit(e){
