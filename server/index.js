@@ -24,7 +24,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 function searchYouTube(req,res){
 
-  let searchString = 'https://www.googleapis.com/youtube/v3/search?q='+Math.floor(Math.random()*20)+'&part=snippet&key='+YOUTUBE_API_KEY+'&maxResults=10&type=video&videoEmbeddable=true'
+  let searchString = 'https://www.googleapis.com/youtube/v3/search?q='+req.query.q+'&part=snippet&key='+YOUTUBE_API_KEY+'&maxResults=10&type=video&videoEmbeddable=true'
   axios.get(searchString)
   .then((result)=>{
     // console.log(result.data.items);

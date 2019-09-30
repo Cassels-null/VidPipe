@@ -1008,7 +1008,7 @@ function (_React$Component) {
   }, {
     key: "updateVids",
     value: function updateVids(newVids) {
-      console.log('reached updateVids');
+      // console.log('reached updateVids');
       this.setState({
         vids: newVids
       });
@@ -26772,26 +26772,39 @@ function (_React$Component) {
   _createClass(Comp, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        id: "searchContainer",
-        onClick: function onClick() {
-          _this2.search();
-        }
-      }, "this is a component");
+      return (// <div id='searchContainer' onClick={()=>{this.search()}}>
+        //     this is a component
+        // </div>
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
+          id: "searchContainer",
+          onSubmit: this.search
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          id: "searchText",
+          type: "text"
+        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+          type: "submit",
+          value: "submit!"
+        }))
+      );
     }
   }, {
     key: "search",
-    value: function search() {
-      var _this3 = this;
+    value: function search(e) {
+      var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get("http://127.0.0.1:1337/search").then(function (result) {
-        _this3.props.updateVids(result.data);
+      e.preventDefault();
+      var urlWithSearchTerm = "http://127.0.0.1:1337/search?q=" + document.getElementById('searchText').value;
+      __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get(urlWithSearchTerm).then(function (result) {
+        _this2.props.updateVids(result.data);
       })["catch"](function (err) {
         console.log("ERROR in Search.search: " + err);
       });
-    }
+    } // handelSubmit(e){
+    //     e.preventDefault();
+    //     console.log(document.getElementById('searchText').value);
+    //     search(document.getElementById('searchText').value);
+    // }
+
   }]);
 
   return Comp;

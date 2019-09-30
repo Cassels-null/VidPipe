@@ -11,17 +11,29 @@ class Comp extends React.Component{
 
     render(){
         return(
-            <div id='searchContainer' onClick={()=>{this.search()}}>
-                this is a component
-            </div>
+            // <div id='searchContainer' onClick={()=>{this.search()}}>
+            //     this is a component
+            // </div>
+            <form id='searchContainer' onSubmit={this.search}>
+                <input id='searchText' type="text"></input>
+                <input type="submit" value="submit!"/>
+            </form>
         )
     }
 
-    search(){
-        axios.get("http://127.0.0.1:1337/search")
+    search(e){
+        e.preventDefault();
+        var urlWithSearchTerm = "http://127.0.0.1:1337/search?q=" + document.getElementById('searchText').value;
+        axios.get(urlWithSearchTerm)
         .then((result)=>{this.props.updateVids(result.data);})
         .catch((err)=>{console.log("ERROR in Search.search: "+err)})
     }
+
+    // handelSubmit(e){
+    //     e.preventDefault();
+    //     console.log(document.getElementById('searchText').value);
+    //     search(document.getElementById('searchText').value);
+    // }
 
 }
 

@@ -392,7 +392,7 @@ class App extends React.Component{
     }
 
     updateVids(newVids){
-        console.log('reached updateVids');
+        // console.log('reached updateVids');
         this.setState({vids: newVids});
     }
 
