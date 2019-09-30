@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import Description from "./description.jsx"
+
 class Screen extends React.Component{
     constructor(props){
         super(props);
@@ -13,6 +15,7 @@ class Screen extends React.Component{
                 <div id='currentVidContainer'>
                     <iframe id='currentVid' src={`https://www.youtube.com/embed/${this.props.vid.id.videoId}`} allowFullScreen></iframe>
                 </div>
+                <Description vid={this.props.vid}/>
             </div>
         )
     }
