@@ -6,7 +6,7 @@ class Comp extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            serverAdress : "http://127.0.0.1:1337"
+            serverAdress : "http://184.73.96.167"
         }
         this.search = this.search.bind(this);
     }
