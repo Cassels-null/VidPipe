@@ -984,9 +984,11 @@ function (_React$Component) {
           "channelTitle": "mikelat",
           "liveBroadcastContent": "none"
         }
-      }
+      },
+      watchID: 7
     };
     _this.updateVids = _this.updateVids.bind(_assertThisInitialized(_this));
+    _this.playNewVid = _this.playNewVid.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1000,9 +1002,12 @@ function (_React$Component) {
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         id: "bigFlex"
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__screen_jsx__["a" /* default */], {
-        vid: this.state.watching
+        vid: this.state.vids[this.state.watchID]
+        /*this.state.watching*/
+
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__vidSelect_jsx__["a" /* default */], {
-        vids: this.state.vids
+        vids: this.state.vids,
+        playNewVid: this.playNewVid
       })));
     }
   }, {
@@ -1012,6 +1017,15 @@ function (_React$Component) {
       this.setState({
         vids: newVids
       });
+    }
+  }, {
+    key: "playNewVid",
+    value: function playNewVid(vidID) {
+      if (this.state.watchID !== vidID) {
+        this.setState({
+          watchID: vidID
+        });
+      }
     }
   }]);
 
@@ -25751,6 +25765,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vidInList_jsx__ = __webpack_require__(48);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25768,6 +25783,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -25790,17 +25806,20 @@ function (_React$Component) {
   _createClass(VidSelect, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         id: "vidSelect"
-      }, this.props.vids.map(function (e) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-          className: "vidInList"
-        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-          className: "thumbnail",
-          src: e.snippet.thumbnails.medium.url
-        }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-          className: "listTitle"
-        }, e.snippet.title));
+      }, this.props.vids.map(function (ele, index) {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__vidInList_jsx__["a" /* default */], {
+          playNewVid: _this2.props.playNewVid,
+          vidInfo: ele,
+          vidID: index
+        }) // <div className='vidInList'>
+        //     <img className='thumbnail' src={e.snippet.thumbnails.medium.url}/>
+        //     <div className='listTitle'>{e.snippet.title}</div>
+        // </div>
+        ;
       }));
     }
   }]);
@@ -27601,6 +27620,78 @@ module.exports = function spread(callback) {
   };
 };
 
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var VidInList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(VidInList, _React$Component);
+
+  function VidInList(props) {
+    var _this;
+
+    _classCallCheck(this, VidInList);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(VidInList).call(this, props));
+    _this.state = {};
+    _this.play = _this.play.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(VidInList, [{
+    key: "render",
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "vidInList"
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+        className: "thumbnail",
+        src: this.props.vidInfo.snippet.thumbnails.medium.url,
+        onClick: this.play
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        className: "listTitle"
+      }, this.props.vidInfo.snippet.title));
+    }
+  }, {
+    key: "play",
+    value: function play(e) {
+      e.preventDefault();
+      this.props.playNewVid(this.props.vidID);
+    }
+  }]);
+
+  return VidInList;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["a"] = (VidInList);
 
 /***/ })
 /******/ ]);

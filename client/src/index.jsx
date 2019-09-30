@@ -374,9 +374,11 @@ class App extends React.Component{
                     "channelTitle": "mikelat",
                     "liveBroadcastContent": "none"
                 }
-            }
+            },
+            watchID : 7
         };
         this.updateVids = this.updateVids.bind(this);
+        this.playNewVid = this.playNewVid.bind(this);
     }
 
     render(){
@@ -384,8 +386,8 @@ class App extends React.Component{
             <div id="main">
                 <Search updateVids={this.updateVids}/>
                 <div id='bigFlex'>
-                    <Screen vid={this.state.watching}/>
-                    <VidSelect vids={this.state.vids}/>
+                    <Screen vid={this.state.vids[this.state.watchID]/*this.state.watching*/}/>
+                    <VidSelect vids={this.state.vids} playNewVid={this.playNewVid}/>
                 </div>
             </div>
         )
@@ -394,6 +396,12 @@ class App extends React.Component{
     updateVids(newVids){
         // console.log('reached updateVids');
         this.setState({vids: newVids});
+    }
+
+    playNewVid(vidID){
+        if(this.state.watchID !== vidID){
+            this.setState({watchID: vidID});
+        }
     }
 
 }
